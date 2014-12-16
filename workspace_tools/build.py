@@ -91,11 +91,6 @@ if __name__ == '__main__':
                       default=False,
                       help="Compiles 'cpputest' unit test library (library should be on the same directory level as mbed repository)")
 
-    parser.add_option("-D", "",
-                      action="append",
-                      dest="macros",
-                      help="Add a macro definition")
-
     parser.add_option("-S", "--supported-toolchains",
                       action="store_true",
                       dest="supported_toolchains",
@@ -112,21 +107,6 @@ if __name__ == '__main__':
                       dest='general_filter_regex',
                       default=None,
                       help='For some commands you can use filter to filter out results')
-
-    parser.add_option("-j", "--jobs", type="int", dest="jobs",
-                      default=1, help="Number of concurrent jobs (default 1). Use 0 for auto based on host machine's number of CPUs")
-
-    parser.add_option("-v", "--verbose",
-                      action="store_true",
-                      dest="verbose",
-                      default=False,
-                      help="Verbose diagnostic output")
-
-    parser.add_option("--silent",
-                      action="store_true",
-                      dest="silent",
-                      default=False,
-                      help="Silent diagnostic output (no copy, compile notification)")
 
     parser.add_option("-x", "--extra-verbose-notifications",
                       action="store_true",

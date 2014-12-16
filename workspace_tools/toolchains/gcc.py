@@ -15,6 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 import re
+from string import find, replace
 from os.path import join, basename, splitext
 
 from workspace_tools.toolchains import mbedToolchain
@@ -65,6 +66,11 @@ class GCC(mbedToolchain):
             common_flags.append("-O0")
         else:
             common_flags.append("-O2")
+
+        # override optimization levels ("opt-O*" option)
+        optlevel = [o for o in self.options if find(o, "opt-O") == 0]
+        if len(optlevel) >= 1:
+            common_flags.append(replace(optlevel[-1],"opt",""))
 
         main_cc = join(tool_path, "arm-none-eabi-gcc")
         main_cppc = join(tool_path, "arm-none-eabi-g++")

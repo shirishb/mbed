@@ -58,29 +58,6 @@ if __name__ == '__main__':
                       dest="program_name",
                       help="The name of the desired test program")
 
-    parser.add_option("-j", "--jobs",
-                      type="int",
-                      dest="jobs",
-                      default=1,
-                      help="Number of concurrent jobs (default 1). Use 0 for auto based on host machine's number of CPUs")
-
-    parser.add_option("-v", "--verbose",
-                      action="store_true",
-                      dest="verbose",
-                      default=False,
-                      help="Verbose diagnostic output")
-
-    parser.add_option("--silent",
-                      action="store_true",
-                      dest="silent",
-                      default=False,
-                      help="Silent diagnostic output (no copy, compile notification)")
-
-    parser.add_option("-D", "",
-                      action="append",
-                      dest="macros",
-                      help="Add a macro definition")
-
     # Local run
     parser.add_option("--automated", action="store_true", dest="automated",
                       default=False, help="Automated test")
