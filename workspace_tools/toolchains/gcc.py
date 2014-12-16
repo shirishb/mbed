@@ -68,9 +68,9 @@ class GCC(mbedToolchain):
             common_flags.append("-O2")
 
         # override optimization levels ("opt-O*" option)
-        optlevel = [o for o in self.options if find(o, "opt-O") == 0]
-        if len(optlevel) >= 1:
-            common_flags.append(replace(optlevel[-1],"opt",""))
+        optlevels = [o for o in self.options if find(o, "opt-O") == 0]
+        if len(optlevels) >= 1:
+            common_flags.append(replace(optlevels[-1],"opt",""))
 
         main_cc = join(tool_path, "arm-none-eabi-gcc")
         main_cppc = join(tool_path, "arm-none-eabi-g++")
